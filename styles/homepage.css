@@ -1,0 +1,33 @@
+  /* styles/homepage.css */
+
+
+.hero {
+    background: 
+      radial-gradient(circle at 45% 100%, #befff4 30%, transparent 11%), 
+      /* radial-gradient(circle at 65% 100%, #ffffff 30%, transparent 13%),  */
+      radial-gradient(circle at 0% 0%, #befff4 30%, transparent 30%),
+      radial-gradient(circle at 90% 10%, #ffffff 10%, transparent 31%), 
+      
+       linear-gradient(200deg, #ffffff, #DEE9F4, #befff4);
+    background-blend-mode: overlay;
+    min-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    margin-bottom: 50px;
+    padding: 30px;
+ 
+} 
+
+/* styles.css (or your existing CSS file) */
+.circle-gradient-1 {
+  background-image: radial-gradient(circle at 45% 100%, #befff4 30%, transparent 11%);
+}
+
+.circle-gradient-2 {
+  background-image: radial-gradient(circle at 15% 80%, #e4f8ff 30%, transparent 11%); /* Example of a second circle */
+}
+
+
+

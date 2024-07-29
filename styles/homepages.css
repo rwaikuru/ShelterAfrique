@@ -1,0 +1,63 @@
+
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+  }
+  
+
+
+.heroes {
+    /* ... other properties ... */
+    background-image: linear-gradient(to bottom right, #F2994A, transparent, transparent, #F2994A), 
+                      linear-gradient(to bottom left, #F2994A, transparent, transparent, #F2994A); /* Gradient overlay */
+    background-size: 50% 100%, 50% 100%; /* Adjust gradient size */
+    background-position: left top, right top;
+    background-repeat: no-repeat;
+  }
+  
+    
+  .hero h1 {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+  }
+  
+  .features {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .feature {
+    flex: 1 0 33.33%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature p {
+    margin-bottom: 0;
+  }
+  
+  .call-to-action {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .call-to-action a {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  

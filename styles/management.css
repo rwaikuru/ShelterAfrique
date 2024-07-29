@@ -1,0 +1,16 @@
+.card {
+    height: 300px; /* Adjust the height as needed */
+  }
+
+  .image-container {
+    width: 100%;  /* Adjust as needed */
+    height: auto; /* Adjust to maintain aspect ratio */
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    object-fit: contain; /* or cover depending on your needs */
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
