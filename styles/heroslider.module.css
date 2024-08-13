@@ -1,0 +1,23 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.text-content {
+  font-size: 2.5rem; /* Adjust as needed for text-4xl */
+}
+.swiper-pagination-bullet {
+  width: 30px;
+  height: 5px;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: rgba(0, 0, 0, 1);
+}

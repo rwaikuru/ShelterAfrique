@@ -9,7 +9,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
   return (
 
-    <div className="flex flex-col min-h-screen bg-[#F3F4F1]">
+    <div className="flex flex-col min-h-screen bg-[#ffffff]">
     {/* Page content */}
     <main className="flex-grow">
       <Component {...pageProps} />

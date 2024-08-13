@@ -1,72 +1,156 @@
-import React from 'react';
-import Image from 'next/image';
+// components/Herosection.jsx
+
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Navbarmain from '@/components/Navbar';
+import { Lora } from 'next/font/google';
 
-function Herosection() {
+
+const lora = Lora({ subsets: ['latin'] }); // Configure font loader
+
+
+const fadeInUp = {
+  animation: 'fadeInUp 1s ease-in-out',
+};
+
+const textContentStyle = {
+  position: 'absolute',
+  bottom: '20%',
+  left: '10%',
+  transform: 'translateX(0)',
+  color: 'white',
+  textAlign: 'left',
+  maxWidth: '50%',
+  padding: '0 20px',
+};
+
+const lineStyle = {
+  borderBottom: '2px solid blue',
+  margin: '10px 0',
+  width: '500px',
+  display: 'block',
+};
+
+const dropdownStyle = {
+  position: 'absolute',
+  top: '10px',
+  left: '10px',
+  color: 'white',
+  fontSize: '16px',
+  cursor: 'pointer',
+  zIndex: 1000, // Ensure it appears above other content
+};
+
+const dropdownContentStyle = {
+  display: 'none',
+  position: 'absolute',
+  top: '20px',
+  left: '0',
+  backgroundColor: 'transparent',
+  padding: '5px 0',
+  zIndex: 1000, // Ensure it appears above other content
+};
+
+const dropdownItemStyle = {
+  padding: '5px 10px',
+  textDecoration: 'none',
+  color: 'white',
+  display: 'block',
+};
+
+const dropdownItemHoverStyle = {
+  textDecoration: 'underline',
+};
+
+const Herosection = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+
   return (
-    <div className='bg-[#3f4f1]'>
-      <Navbarmain />
+    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden', position: 'relative', marginBottom: '5px' }}>
+     
+      <style jsx global>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .text-content {
+          font-size: 2.5rem; /* Adjust as needed for text-4xl */
+        }
+        .swiper-pagination-bullet {
+          width: 30px;
+          height: 1px;
+          border-radius: 0;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 1;
+          
+          
+        }
+        .swiper-pagination-bullet-active {
+          background: rgba(0, 0, 0, 1);
+        }
+      `}</style>
 
-      {/* Image with Text Overlay */}
-      <div className="relative h-screen overflow-hidden rounded-lg mx-5 mt-5">
-        <Image
-          src="/homepage.avif"
-          alt="Background"
-          layout="fill"
-          className="absolute inset-0 z-0 rounded-lg object-cover"
-        />
+      <div
+        style={dropdownStyle}
+        onClick={() => setShowDropdown(!showDropdown)}
+      >
+        <span style={{ textDecoration: 'underline', color: "black" }}>English</span>
+        <div style={{ ...dropdownContentStyle, display: showDropdown ? 'block' : 'none' }}>
+          <a href="#" style={dropdownItemStyle} onMouseOver={e => e.target.style = dropdownItemHoverStyle} onMouseOut={e => e.target.style = dropdownItemStyle}>
+            French
+          </a>
+        </div>
+      </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-30 z-10 rounded-lg"></div>
-
-        {/* Text Content */}
-        <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white">
-          <div className="px-5 py-10">
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-2">
-              A Pan-African Real Estate
-            </h1>
-            <div className="flex flex-col lg:flex-row items-center mt-4">
-              <Image
-                src="/construction.png"
-                alt="Start Image"
-                width={80}
-                height={80}
-                className="mr-4 mb-4 lg:mb-0"
-              />
-              <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Finance Institution
-              </h2>
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center ml-4">
-                <Image
-                  src="/moneybag.png"
-                  alt="End Image"
-                  width={80}
-                  height={80}
-                />
-              </div>
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop
+        style={{ height: '100%', width: '100%' }}
+      >
+        <SwiperSlide>
+          <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+            <img
+              src="/heroo.gif" 
+              alt="GIF"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div className="text-content text-black" style={{ ...textContentStyle, ...fadeInUp }}>
+              <h2 className='mb-5 text-xs text-black'>WE ARE SHELTER AFRIQUE</h2>
+              <h2 style={{ fontSize: '2rem', color: 'black' }}>The Only Pan-African Real Estate <br/>Finance Institution</h2>
+              <div style={lineStyle}></div> {/* White line */}
+              <p className='text-sm mb-10 align-center text-black'>Our work has a directive for positive impact on the lives of many.</p>
             </div>
-            <p className="text-lg mt-8 max-w-2xl mx-auto">
-              Shelter Afrique is the only Pan-African finance institution that exclusively supports the
-              development of housing and urban development in Africa.
-            </p>
-            <button className="px-6 py-3 mt-8 rounded-md border border-neutral-300 bg-neutral-100 text-neutral-500 text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-              View Tenders
-            </button>
           </div>
-        </div>
-      </div>
-
-      {/* Static Ticker */}
-      <div className=" bg-[#F3F4F1] relative py-3">
-        <div className=" flex items-center justify-center">
-          <span className="px-4">Annual Reports</span>
-          <span className="px-4">News and Events</span>
-          <span className="px-4">Newsletters</span>
-          <span className="px-4">Member Countries</span>
-        </div>
-      </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+            <img
+              src="/globe.png"
+              alt="Image 2"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+<div className={`text-content text-black ${lora.className}`} style={{ ...textContentStyle, ...fadeInUp }}>
+<h2 style={{ fontSize: '2rem', color: "black" }}>Highlights</h2>
+              <div style={lineStyle}></div> {/* White line */}
+              <p className='text-black'>This is some description for the second slide.</p>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
-}
+};
 
 export default Herosection;

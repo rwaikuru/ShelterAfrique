@@ -38,19 +38,16 @@ const DummyContent = () => {
         >
           <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
             <span className="font-bold text-neutral-700 dark:text-neutral-200">
-              The first rule of Apple club is that you boast about Apple club.
+              
             </span>{" "}
-            Keep a journal, quickly jot down a grocery list, and take amazing
-            class notes. Want to convert those notes to text? No problem.
-            Langotiya jeetu ka mara hua yaar is ready to capture every
-            thought.
+            Mr. Thierno-Habib Hann is the Chief Executive Officer of Shelter Afrique, the Pan-African institution for housing. He joined Shelter Afrique from the International Finance Corporation (IFC), where he served as the Asia/Pacific Lead for housing finance, based in Bangkok, Thailand.
           </p>
           <Image
             src="/businesslady.avif"
             alt="Business Lady"
-            height="100"
-            width="100"
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-cover"
+            height="50"
+            width="50"
+            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto "
           />
         </div>
       ))}

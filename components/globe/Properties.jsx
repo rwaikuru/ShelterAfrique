@@ -9,7 +9,7 @@ const Properties = ({
   return (
     <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-5">
       <FontAwesomeIcon
-        className="text-yellow-500 text-2xl xl:text-3xl"
+        className="text-[#f4f2f2] text-2xl xl:text-3xl"
         icon={icon}
       />
       <div className="flex flex-col items-center lg:items-start">

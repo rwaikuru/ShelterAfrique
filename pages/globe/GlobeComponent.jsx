@@ -26,6 +26,8 @@ const GlobeComponent = () => {
 
   return (
     <>
+        <h2 className="text-xl text-black align-middle text-center mb-4">Your Text Above the Globe</h2>
+
       {menuLoading ? (
         <div className="m-5">
           <CardSkeleton />

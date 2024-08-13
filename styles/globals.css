@@ -25,3 +25,30 @@
     )
     rgb(var(--background-start-rgb));
 } */
+
+/* Define custom styles for Swiper pagination bullets */
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0; /* Remove rounded corners */
+  margin: 0 5px; /* Add some spacing between the bullets */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(0, 0, 0, 0.75); /* Slightly darker for active bullet */
+}
+
+.custom-bullet {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  margin: 0 5px;
+}
+
+.custom-bullet-active {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
