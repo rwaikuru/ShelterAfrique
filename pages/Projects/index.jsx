@@ -1,12 +1,17 @@
 import { cn } from "@/lib/utils";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { Card, CardBody } from '@nextui-org/react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IconClipboardCopy, IconFileBroken, IconSignature } from '@tabler/icons-react';
 
 export const BentoGrid = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-4 gap-4 max-w-7xl mx-auto",
+        "grid grid-cols-1 md:grid-cols-4 gap-4 bg-[#F3F4F1] rounded-lg ml-5 mr-5",
         className
       )}
     >
@@ -19,7 +24,7 @@ export const BentoGridItem = ({ className, title, description, header, icon }) =
   return (
     <div
       className={cn(
-        "relative row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
+        "relative row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-[#FFFFFF] border border-transparent justify-between flex flex-col space-y-4",
         className
       )}
     >
@@ -39,13 +44,6 @@ export const BentoGridItem = ({ className, title, description, header, icon }) =
     </div>
   );
 };
-
-// Projects component
-import { Card, CardBody } from '@nextui-org/react';
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
-import {  IconClipboardCopy, IconFileBroken, IconSignature } from '@tabler/icons-react';
 
 const SkeletonOne = () => <div className="skeleton skeleton-one" />;
 const SkeletonTwo = () => <div className="skeleton skeleton-two" />;
@@ -67,28 +65,28 @@ function Projects() {
   const regionItems = [
     {
       title: "Residential",
-      description: "Experience the power of AI in generating unique content.",
+      description: "residential housing by shelter afrique",
       header: <SkeletonOne />,
       className: "md:col-span-1",
       icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Mortgage Finance",
-      description: "Let AI handle the proofreading of your documents.",
+      description: "mortgage finance by shelter afrique",
       header: <SkeletonTwo />,
       className: "md:col-span-1",
       icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Commercial",
-      description: "Get AI-powered suggestions based on your writing context.",
+      description: "commercials financed by shelter afrique",
       header: <SkeletonThree />,
       className: "md:col-span-1",
       icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     },
     {
       title: "Mixed Use",
-      description: "Experience the power of AI in generating unique content.",
+      description: "Mixed use financed by shelter afrique",
       header: <SkeletonFour />,
       className: "md:col-span-1",
       icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
@@ -127,7 +125,7 @@ function Projects() {
   ];
 
   return (
-    <div className="flex flex-col items-center mt-20 mb-20 mx-auto max-w-screen-lg px-4">
+    <div className="  h-screen bg-[#F3F4F1] p-10 border-t-2 flex flex-col items-center rounded-t-3xl border-b-4">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">Projects Financed</h1>
         <h2 className="text-lg mt-2">
@@ -175,7 +173,7 @@ function Projects() {
           </AnimatePresence>
         </BentoGrid>
       </div>
-      <button className="px-6 py-2 bg-black text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 w-full max-w-xs mx-auto">
+      <button className="px-6 py-2 bg-blue-950 text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 w-auto mx-auto align-middle justify-center">
         Explore More
       </button>
     </div>

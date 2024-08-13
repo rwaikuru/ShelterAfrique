@@ -9,13 +9,13 @@ export function Footer() {
         {/* Small Logo and Contact */}
         <div className="flex-shrink-0 mb-4 md:mb-0 flex flex-col items-center md:items-start">
           <img src="/ShelterAfrique logo.png" alt="Small Logo" className="h-24" />
-          <div className="mt-4">
-          <h3 className="text-lg font-semibold">Contact Us</h3>
-            <div className="flex items-center mt-2">
+          <div className="mt-4 ml-5" >
+          <h3 className="text-lg font-semibold ml-4">Contact Us</h3>
+            <div className="flex items-center mt-2 ml-5">
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
               <p className="ml-3">Call us: +254-20-4978000</p>
             </div>
-            <div className="flex items-center mt-2">
+            <div className="flex items-center mt-2 ml-5">
               <FontAwesomeIcon icon={faEnvelopeOpen} className="mr-2" />
               <p className="ml-3">info@shelterafrique.org</p>
             </div>
@@ -79,13 +79,13 @@ export function Footer() {
             <input
               type="email"
               placeholder="Email"
-              className="p-2 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-2 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 "
             />
-            <button className="px-4 py-2 rounded-xl border border-neutral-600 text-black bg-white hover:bg-gray-100 transition duration-200 p-2 rounded-r-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button className="px-4 py-2 mr-5 rounded-xl border border-neutral-600 text-black bg-white hover:bg-gray-100 transition duration-200 p-2 rounded-r-full focus:outline-none focus:ring-2 focus:ring-blue-500">
               Subscribe
             </button>
           </div>
-          <p className="mt-2 text-sm text-gray-600">You can unsubscribe at any time.</p>
+          <p className="mt-2 text-xs text-gray-600">You can unsubscribe at any time.</p>
         </div>
       </div>
     </footer>

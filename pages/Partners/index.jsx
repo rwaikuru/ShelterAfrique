@@ -5,15 +5,11 @@ import { InfiniteMovingCards } from "../../components/ui/infinite-moving-cards";
 
 export function Partners() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-        <div>
-            <h1 className="text-3xl font-bold mb-5">Featured Partners</h1>
-        </div>
-      <InfiniteMovingCards
-        items={images}
-        direction="right"
-        speed="slow"
-      />
+    <div className="flex flex-col items-center justify-center relative overflow-hidden py-8">
+      <div className="w-full max-w-7xl text-center mb-8">
+        <h1 className="text-3xl font-bold">Featured Partners</h1>
+      </div>
+      <InfiniteMovingCards items={images} direction="right" speed="slow" />
     </div>
   );
 }
@@ -44,3 +40,5 @@ const images = [
     alt: "Fonds De Solidarite Africain Logo",
   },
 ];
+
+export default Partners;

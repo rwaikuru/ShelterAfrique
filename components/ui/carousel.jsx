@@ -93,16 +93,16 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
             ))}
           </div>
         </div>
-        <div className="flex justify-end gap-2 mr-10">
+        <div className="flex justify-end gap-2 mr-10 relative -top-8"> {/* Adjusted positioning */}
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+            className="relative z-40 h-10 w-10 rounded-full bg-white flex items-center justify-center disabled:opacity-50"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+            className="relative z-40 h-10 w-10 rounded-full bg-white flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
@@ -192,27 +192,27 @@ export const Card = ({ card, index, layout = false }) => {
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-64 w-48 md:h-80 md:w-72 overflow-hidden flex flex-col relative z-10"
+        className="rounded-3xl bg-white dark:bg-neutral-900 h-64 w-48 md:h-80 md:w-72 overflow-hidden flex flex-col relative z-10"
       >
-        <div className="relative z-10">
+        <div className="relative z-10 h-40 md:h-56 w-full">
           <BlurImage
             src={card.src}
             alt={card.title}
-            height={400}
-            width={400}
-            className="object-cover w-full h-40 md:h-56"
+            height={200}
+            width={200}
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="bg-white dark:bg-neutral-800 p-4 mt-auto">
+        <div className="bg-white dark:bg-neutral-800 p-4 mt-auto min-h-[8rem]"> {/* Added min-height */}
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-black dark:text-white text-sm md:text-base font-medium font-sans text-left"
+            className="text-black dark:text-white text-xs md:text-sm font-medium font-sans text-left"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-black dark:text-white text-xl md:text-2xl font-semibold text-left mt-2"
+            className="text-black dark:text-white text-base md:text-lg font-semibold text-left mt-2"
           >
             {card.title}
           </motion.p>
@@ -222,6 +222,9 @@ export const Card = ({ card, index, layout = false }) => {
   );
 };
 
+
+
+
 export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
   const [isLoading, setLoading] = useState(true);
   return (
@@ -229,7 +232,8 @@ export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
       className={cn(
         "transition duration-300",
         isLoading ? "blur-sm" : "blur-0",
-        className
+        className,
+        "object-cover" // Ensures the image covers its container
       )}
       onLoad={() => setLoading(false)}
       src={src}
@@ -243,3 +247,4 @@ export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
     />
   );
 };
+
