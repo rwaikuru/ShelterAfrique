@@ -20,14 +20,20 @@ const GlobeModal = ({ isOpen, onClose, countryData }) => {
     return <div>An error occurred while loading projects: {error.message}</div>;
   }
 
-    const projects = projectDetails?.map((detail) => ({
-      id: detail.id,
-      title: detail.title.rendered,
-      funding: detail.acf?.funding,
-      status: detail.acf?.project_status,
-      // Add other desired project properties here
-  
-  }));
+  // Log the projectDetails to inspect the structure
+  console.log('Project Details:', projectDetails);
+
+  // Ensure projectDetails is an array before proceeding
+  if (!Array.isArray(projectDetails)) {
+    console.warn('Expected projectDetails to be an array, but received:', projectDetails);
+    return <div>Failed to load projects.</div>;
+  }
+
+  const projects = projectDetails.filter(
+    (detail) => detail.acf?.country?.toLowerCase() === countryData?.properties.ADMIN?.toLowerCase()
+  );
+
+  console.log('Filtered Projects:', projects);
 
   return (
     <Modal
@@ -41,7 +47,6 @@ const GlobeModal = ({ isOpen, onClose, countryData }) => {
       <ModalContent className="bg-white">
         <ModalBody>
           <div className="space-y-5">
-            {/* Country Name and View Profile Link */}
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">{countryData?.properties.ADMIN}</h2>
               <a href="#" className="text-blue-600 underline">
@@ -49,70 +54,36 @@ const GlobeModal = ({ isOpen, onClose, countryData }) => {
               </a>
             </div>
 
-            {/* Project Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {isLoading ? (
                 <p>Loading projects...</p>
               ) : (
-                projects?.map((project, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-100 border border-gray-300 rounded-lg shadow-md overflow-hidden"
-                  >
-                    <div className="p-4 cursor-pointer">
-                      <h3 className="text-lg font-semibold">{project.title}</h3>
-                      <p>Funding: {project.funding}</p>
-                      <p>Status: {project.status}</p>
-                    </div>
-                    <Accordion
-                      motionProps={{
-                        variants: {
-                          enter: {
-                            y: 0,
-                            opacity: 1,
-                            height: 'auto',
-                            transition: {
-                              height: {
-                                type: 'spring',
-                                stiffness: 500,
-                                damping: 30,
-                                duration: 1,
-                              },
-                              opacity: {
-                                easings: 'ease',
-                                duration: 1,
-                              },
-                            },
-                          },
-                          exit: {
-                            y: -10,
-                            opacity: 0,
-                            height: 0,
-                            transition: {
-                              height: {
-                                easings: 'ease',
-                                duration: 0.25,
-                              },
-                              opacity: {
-                                easings: 'ease',
-                                duration: 0.3,
-                              },
-                            },
-                          },
-                        },
-                      }}
+                projects.length > 0 ? (
+                  projects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="bg-gray-100 border border-gray-300 rounded-lg shadow-md overflow-hidden"
                     >
-                      <AccordionItem
-                        key={index}
-                        aria-label={`Details for ${project.title}`}
-                        title="Details"
-                        className="p-4 bg-gray-50"
-                      >
-                        {/* More project details */}
-                      </AccordionItem>
-                    </Accordion>
-                  </div>
-                ))
+                      <div className="p-4 cursor-pointer">
+                        <h3 className="text-lg font-semibold">{project.title.rendered}</h3>
+                        <p>Funding: {project.acf.funding}</p>
+                        <p>Status: {project.acf.project_status}</p>
+                      </div>
+                      <Accordion>
+                        <AccordionItem
+                          key={project.id}
+                          aria-label={`Details for ${project.title.rendered}`}
+                          title="Details"
+                          className="p-4 bg-gray-50"
+                        >
+                          {/* More project details */}
+                        </AccordionItem>
+                      </Accordion>
+                    </div>
+                  ))
+                ) : (
+                  <p>No projects found for {countryData?.properties.ADMIN}</p>
+                )
               )}
             </div>
           </div>

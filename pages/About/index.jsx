@@ -1,48 +1,103 @@
-import { Card, CardBody } from '@nextui-org/react';
-import React from 'react';
-import Image from 'next/image';
-import AnimatedNumber from '../../components/ui/Animatednumber';
+import React from "react";
+import Image from "next/image";
 
-function About() {
+const About = () => {
   return (
-    <div className="bg-[#FFF6E9] mt-10 rounded-lg h-screen flex items-center justify-center">
-      <Card className='bg-transparent w-full md:w-[75rem] rounded-lg'>
-        <CardBody className="overflow-hidden rounded-lg flex flex-col md:flex-row p-8 items-start space-y-8 md:space-y-0 md:space-x-8">
+    <section className="bg-gradient-to-b from-blue-900 via-blue-300 to-blue-900 text-white py-16 ml-10 mr-10 rounded-xl">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-teal-100 text-sm font-semibold">
+            SHELTER AFRIQUE
+          </h2>
+          <h2 className="text-teal-100 text-sm font-semibold">
+            VIEW OUR HISTORY →
+          </h2>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold text-left mb-16">
+         Explore our Organization
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+            <div className="flex justify-center mb-4">
+            <Image 
+             src="/wired-outline-63-home.gif"
+             width={50}
+             height={50}
 
-          {/* Left Side: Title */}
-          <div className="relative flex flex-col w-full md:w-1/2 items-center md:items-start space-y-8">
-            <h2 className="text-5xl font-bold mb-8">
-              Building Africa's Future{" "}
-              <span className="relative inline-block text-blue- mt-4">
-                <span className="relative z-10 pr-6 text-4xl text-center ml-6 text-blue-500">
-                  Together
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center -right-4 -bottom-2 rounded-full border-2 border-blue-500"></span>
-              </span>
-            </h2>
-
-            {/* Text below the title */}
-            <p className="text-lg font-normal mb-2">
-              Shelter Afrique is the only pan-African finance institution that exclusively supports the development of the housing and real estate sector in Africa.
+             />
+            </div>
+            <h3 className="text-xl font-semibold mb-4">Annual Reports</h3>
+            <p>
+            Download presentations of Shelter Afrique annual results for the past year and previous years.
             </p>
-            {/* <p className="text-normal font-light mb-4">
-              As the Company for Housing and Habitat in Africa, our work has a direct and positive impact on the lives of many by meeting the needs of the continent’s rapidly growing urban population.
-            </p> */}
-
-            <button className="px-6 py-2 w-[150px] bg-blue-950 text-white rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
-              Read More
-            </button>
+            <h2 className="text-teal-900 text-sm font-semibold mt-5">
+            Learn more →
+          </h2>
           </div>
 
-          {/* Right Side: GIF */}
-          <div className="flex flex-col w-full md:w-1/2 items-center md:items-start mt-10 md:mt-0">
-            <img src="/const.gif" alt="Descriptive text for the GIF" className="w-full md:w-3/4" />
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+            <div className="flex justify-center mb-4">
+             <Image 
+             src="/wired-outline-63-home.gif"
+             width={50}
+             height={50}
+
+             />
+            </div>
+            <h3 className="text-xl font-semibold mb-4">
+             News and Reports
+            </h3>
+            <p>
+              Catch up on articles by shelter afriques events.
+            </p>
+            <h2 className="text-teal-900 text-sm font-semibold mt-5">
+            Learn more →
+          </h2>
           </div>
 
-        </CardBody>
-      </Card>
-    </div>
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+            <div className="flex justify-center mb-4">
+            <Image 
+             src="/wired-outline-63-home.gif"
+             width={50}
+             height={50}
+
+             />
+            </div>
+            <h3 className="text-xl font-semibold mb-4">
+             Member Countries
+            </h3>
+            <p>
+              Get to see the Countries in partnership with shelterafrique
+            </p>
+            <h2 className="text-teal-900 text-sm font-semibold mt-5">
+            Learn more →
+          </h2>
+          </div>
+
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg">
+            <div className="flex justify-center mb-4">
+            <Image 
+             src="/wired-outline-63-home.gif"
+             width={50}
+             height={50}
+
+             />
+            </div>
+            <h3 className="text-xl text-blue-900 font-semibold mb-4">
+              Newsletters
+            </h3>
+            <p>
+              get to download newsletters by shelterafrique
+            </p>
+            <h2 className="text-teal-900 text-sm font-semibold mt-5">
+            Learn more →
+          </h2>
+          </div>
+        </div>
+      </div>
+    </section>
   );
-}
+};
 
 export default About;

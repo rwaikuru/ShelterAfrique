@@ -1,8 +1,12 @@
 import '@/styles/globals.css'
 import '@/styles/homepage.css'
+import '@/styles/SmoothScroll.module.css'
+import '@/styles/minihero.module.css'
+
 import {useRouter} from 'next/router';
 import {NextUIProvider} from '@nextui-org/react';
 import { Footer } from '@/components/Footer';
+import Navbarmain from '@/components/Navbar';
 
 
 function App({ Component, pageProps }) {
@@ -14,7 +18,7 @@ function App({ Component, pageProps }) {
     <main className="flex-grow">
       <Component {...pageProps} />
     </main>
-    {/* Footer */}
+   <Navbarmain/>
     <Footer />
   </div>
   

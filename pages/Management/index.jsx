@@ -1,97 +1,57 @@
-"use client";
-import Image from "next/image";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/carousel";
 
-export function Management() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
-
+export default function Management() {
   return (
-    <div className="w-full h-full py-20 relative">
-      <button className="absolute top-55 right-20 px-4 py-2 rounded-md border border-neutral-300 bg-blue-950 text-white text-sm hover:-translate-y-1 transform transition duration-200 hover:shadow-md">
-       All Leaders
-      </button>
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 font-sans text-center">
-        Get to know our {" "}
-        <span className="relative inline-block text-blue- mt-4">
-          <span className="relative z-10 pr-6 text-4xl text-center ml-6 text-blue-500">
-            Team
-          </span>
-          <span className="absolute inset-0 flex items-center justify-center -right-4 -bottom-2 rounded-full border-2 border-blue-500"></span>
-        </span>
-        <p className="text-sm font-normal text-center justify-center mt-7">Each of us brings to Shelter Afrique valuable experience and perspective that is core to the quality of operations <br/> and advancement of our mandate as we look to support our members and champion affordable housing for all Africans.</p>
-      </h2>
-      <Carousel items={cards} />
-    </div>
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-r from-blue-950 to-indigo-700">
+      {/* Transparent Card */}
+      <div className="relative z-10 max-w-full mt-5 mx-auto ml-5 mr-5 bg-white/10 rounded-xl px-8 py-8">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-teal-400 uppercase tracking-wider">Management</h2>
+          <a href="#" className="text-teal-400 text-sm uppercase tracking-wide">
+            See All Leaders &rarr;
+          </a>
+        </div>
+        <p className="text-white text-4xl font-light">
+          Shelter Afrique's Board shares the responsibility of directing the institution's strategic goals, and the implementation of the same by the rest of the organisation.
+        </p>
+      </div>
+
+      {/* Job Cards */}
+      <div className="relative z-20 flex overflow-x-auto hide-scrollbar snap-x snap-mandatory w-full px-4 pb-24 pt-8">
+        {[
+          "Ben",
+          "Regina",
+          "Aliza",
+          "Steve",
+          "Guilherme",
+          "Xavier",
+        ].map((name, index) => (
+          <div
+            key={index}
+            className="relative snap-start w-full shrink-0 flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden max-w-xs mx-4 mb-10"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-white opacity-50 z-10"></div>
+            <img
+              src={`/${name.toLowerCase()}.jpg`}
+              alt={name}
+              className="w-full h-48 object-cover z-0"
+            />
+            <div className="relative p-4 z-20">
+              <h3 className="text-gray-900 font-semibold text-lg">{name}</h3>
+              <p className="text-gray-600">Position | Location</p>
+              <p className="mt-2 text-gray-600 text-sm">
+                A brief description about the individual's experience or role.
+              </p>
+              <a href="#" className="text-teal-500 mt-4 block">
+                Meet {name} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Extra Bottom Space */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-r from-blue-950 to-indigo-700"></div>
+    </section>
   );
 }
-
-const DummyContent = () => {
-  return (
-    <>
-      {[...new Array(3)].map((_, index) => (
-        <div
-          key={"dummy-content" + index}
-          className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-        >
-          <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-            <span className="font-bold text-neutral-700 dark:text-neutral-200">
-              
-            </span>{" "}
-            Mr. Thierno-Habib Hann is the Chief Executive Officer of Shelter Afrique, the Pan-African institution for housing. He joined Shelter Afrique from the International Finance Corporation (IFC), where he served as the Asia/Pacific Lead for housing finance, based in Bangkok, Thailand.
-          </p>
-          <Image
-            src="/businesslady.avif"
-            alt="Business Lady"
-            height="50"
-            width="50"
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto "
-          />
-        </div>
-      ))}
-    </>
-  );
-};
-
-const data = [
-  {
-    category: "Mrs Beatrice Mburu",
-    title: "Chief Finance Officer.",
-    src: "/businesslady.avif",
-    content: <DummyContent />,
-  },
-  {
-    category: "Charles Kazuka",
-    title: "Head of Human Capital.",
-    src: "/businessman.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Juliette",
-    title: "Chief Secretary",
-    src: "/businesslady.avif",
-    content: <DummyContent />,
-  },
-  {
-    category: "Dr Mohammed",
-    title: "Head of Policy&Research",
-    src: "/businessman.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Mr Christopher",
-    title: "Head of Credit and Operations",
-    src: "/businessman.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Nissan",
-    title: "Head of Communications and External Affairs",
-    src: "/businesslady.avif",
-    content: <DummyContent />,
-  },
-];
-
-export default Management;
